@@ -65,30 +65,37 @@ body {
     /* background-color: aquamarine; */
 }
 .task {
+    /* clear: both; */
     height: 46px;
     margin-top: 5px;
     background-color: white;
 }
+.task::after {
+    content: "";
+    display: block;
+    clear: both;
+}
 .task-check,
 .task-content {
-    /* float: left; */
-    /* height: 100%;    */
+    padding: 0 12px;
     line-height: 46px;
     display: inline-block;
 }
+.task-check:hover,
+.task-trash:hover{
+    background-color: white;
+    cursor: pointer;
+}
 .task-check {
-    /* line-height: 46px; */
-
+    background-color: rgb(250, 247, 48);
 }
 .task-content {
-    /* line-height: 46px; */
+
 
 }
 .task-trash {
-    display: inline-block;
-
+    padding: 0 16px;
     line-height: 46px;
-    background-color: green;
-    /* float: right; */
-    padding: 0 24px;
+    background-color: rgb(67, 223, 67);
+    float: right;
 }
