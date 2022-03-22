@@ -1,11 +1,9 @@
 var input = document.querySelector('.submit');
 input.addEventListener("keyup", function(e){
-    // console.log('up');
     if (e.keyCode === 13) {
         e.preventDefault();
         button.click();
     }
-
 });
 
 const button = document.querySelector('.button');
@@ -15,7 +13,6 @@ const head = document.querySelector('.heading');
 head.onclick = function () {
     console.log(document.querySelectorAll('.task'));
 }
-var trash_btns = [];
 
 function blankCheck(content) {
     return content.trim().length === 0;
@@ -59,37 +56,19 @@ button.onclick = function() {
             iDiv.classList.remove('moveIn');
             
         }, 500);
-        trash_btns.push(trash_Div);
 
     }
 }
 function deleteItem(e) {
     const parent = e.target.parentElement.parentElement;
-    let current_index = Array.from(parent.parentNode.children).indexOf(parent);
-    let lastChild_index = Array.from(parent.parentNode.children).indexOf(parent.parentNode.lastChild);
-    console.log(lastChild_index);
     parent.classList.add('moveOut');
     parent.children[0].classList.add('moveOut');
     parent.children[1].classList.add('moveOut');
     parent.children[2].classList.add('moveOut');
-    
-    // setTimeout(function () {
-    //     for (var i = current_index + 1; i <= lastChild_index; i++) {
-    //         parent.parentElement.children[i].classList.add('moveUp');
-    //     }
-        
-    // }, 100);
     setTimeout(function(){
         parent.remove();
     },300)
 
-    // setTimeout(function() {
-    //     console.log(task_zone.children[0]);
-    //     for (var i = current_index; i <= lastChild_index - 1; i++) {
-    //         task_zone.children[i].classList.remove('moveUp');
-    //     }
-
-    // }, 700);
 }
 
 function completedCheck(e) {
