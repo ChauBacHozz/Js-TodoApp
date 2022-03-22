@@ -69,23 +69,27 @@ function deleteItem(e) {
     let lastChild_index = Array.from(parent.parentNode.children).indexOf(parent.parentNode.lastChild);
     console.log(lastChild_index);
     parent.classList.add('moveOut');
-    setTimeout(function () {
-        for (var i = current_index + 1; i <= lastChild_index; i++) {
-            parent.parentElement.children[i].classList.add('moveUp');
-        }
+    parent.children[0].classList.add('moveOut');
+    parent.children[1].classList.add('moveOut');
+    parent.children[2].classList.add('moveOut');
+    
+    // setTimeout(function () {
+    //     for (var i = current_index + 1; i <= lastChild_index; i++) {
+    //         parent.parentElement.children[i].classList.add('moveUp');
+    //     }
         
-    }, 100);
+    // }, 100);
     setTimeout(function(){
         parent.remove();
-    },400)
+    },300)
 
-    setTimeout(function() {
-        console.log(task_zone.children[0]);
-        for (var i = current_index; i <= lastChild_index - 1; i++) {
-            task_zone.children[i].classList.remove('moveUp');
-        }
+    // setTimeout(function() {
+    //     console.log(task_zone.children[0]);
+    //     for (var i = current_index; i <= lastChild_index - 1; i++) {
+    //         task_zone.children[i].classList.remove('moveUp');
+    //     }
 
-    }, 700);
+    // }, 700);
 }
 
 function completedCheck(e) {
